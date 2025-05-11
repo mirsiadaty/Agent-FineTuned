@@ -39,14 +39,14 @@ The following is example of a plan the Planner agent generated for the question 
 ```
 <ActionPlan>
 1. Use PythonCodeExecutor to install the yfinance package:
-   ```python
+   '''python
    import subprocess
    import sys
    subprocess.check_call([sys.executable, "-m", "pip", "install", "yfinance"])
-   ```
+   '''
 
 2. Use PythonCodeExecutor to execute the following code to retrieve YTD stock data and calculate gains:
-   ```python
+   '''python
    import yfinance as yf
 
    tickers = ['AAPL', 'MSFT', 'AMZN', 'GOOGL', 'META', 'NVDA']
@@ -70,7 +70,7 @@ The following is example of a plan the Planner agent generated for the question 
            print(f"Error processing {ticker}: {e}")
 
    print(f"The stock with the largest YTD gain is {best_stock} with {max_gain:.2f}%")
-   ```
+   '''
 
 3. Use ResponseComposer to compile the results from step 2 into a final answer for the user.
 </ActionPlan>
