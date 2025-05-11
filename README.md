@@ -9,5 +9,5 @@ Defining the agents are fully customizable.
 This example defines three LM agents, plus three tools.
 
 This multi-agent-system defines a memory with fast random access (via hashmap), which is also saved to disk as a json file everytime the mem is updated.
-![Screenshot from 2025-05-11 18-53-40](https://github.com/user-attachments/assets/5056ea4e-2750-4a97-883a-feb064620705)
+https://github.com/mirsiadaty/Agent-FineTuned/blob/main/Screenshot%20from%202025-05-11%2018-53-40.png
 
