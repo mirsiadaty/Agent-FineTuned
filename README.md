@@ -76,3 +76,16 @@ The following is example of a plan the Planner agent generated for the question 
 </ActionPlan>
 ```
 
+And the final answer is composed by the Composer agent like so:
+```
+<think>
+Okay, let's see. The user is asking which big tech stock has the largest year-to-date gain this year and how much the gain is. The provided answer says Microsoft (MSFT) with 5.02%. But wait, I should check if the action plan and execution results are correct.
+
+First, the action plan uses yfinance to get data for AAPL, MSFT, AMZN, GOOGL, META, and NVDA. The code calculates the YTD gain by taking the first and last closing prices. The execution result shows MSFT as the winner. But I remember that NVDA (NVIDIA) has been doing really well recently. Maybe the data here is outdated or there was an error in the code?
+
+Looking at the execution results, the code output is MSFT with 5.02%. However, if the current date is late 2023, NVIDIA might have a higher gain. But according to the provided data, the code's result is what's given. Since I have to follow the instructions strictly and use the provided execution results, I can't dispute that. The user's answer must be based on the given data, even if it might be outdated. So the correct response here is to relay the information from the execution results as per the instructions. I need to make sure I don't add any extra information beyond what's provided. The answer should state MSFT with 5.02% gain, using the given tags.
+</think>
+
+<ResponseToUser>
+The big tech stock with the largest year-to-date gain this year is <b>MSFT (Microsoft)</b>, with a gain of <b>5.02%</b>.</ResponseToUser>
+```
