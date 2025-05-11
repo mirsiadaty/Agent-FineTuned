@@ -35,4 +35,44 @@ You need to follow these instructions strictly:
 """
 ```
 
+The following is example of a plan the Planner agent generated for the question "Which big tech stock has the largest year-to-date gain this year? How much is the gain?".
+```
+<ActionPlan>
+1. Use PythonCodeExecutor to install the yfinance package:
+   ```python
+   import subprocess
+   import sys
+   subprocess.check_call([sys.executable, "-m", "pip", "install", "yfinance"])
+   ```
+
+2. Use PythonCodeExecutor to execute the following code to retrieve YTD stock data and calculate gains:
+   ```python
+   import yfinance as yf
+
+   tickers = ['AAPL', 'MSFT', 'AMZN', 'GOOGL', 'META', 'NVDA']
+
+   max_gain = -float('inf')
+   best_stock = ''
+
+   for ticker in tickers:
+       try:
+           stock = yf.Ticker(ticker)
+           hist = stock.history(period='ytd')  # Year-to-date
+           if len(hist) < 2:
+               continue
+           start_close = hist['Close'].iloc[0]
+           end_close = hist['Close'].iloc[-1]
+           gain = (end_close - start_close) / start_close * 100
+           if gain > max_gain:
+               max_gain = gain
+               best_stock = ticker
+       except Exception as e:
+           print(f"Error processing {ticker}: {e}")
+
+   print(f"The stock with the largest YTD gain is {best_stock} with {max_gain:.2f}%")
+   ```
+
+3. Use ResponseComposer to compile the results from step 2 into a final answer for the user.
+</ActionPlan>
+```
 
