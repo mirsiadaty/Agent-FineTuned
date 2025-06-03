@@ -79,11 +79,39 @@ The following is example of a plan the Planner agent generated for the question 
 And the final answer is composed by the Composer agent like so:
 ```
 <think>
-Okay, let's see. The user is asking which big tech stock has the largest year-to-date gain and by how much. The answer provided in the ExecutionResults says Microsoft (MSFT) with a 6.30% gain. But wait, I should make sure that the action plan was correctly followed. The ActionPlan mentioned using yfinance to get the data for the listed tickers. The code seems to loop through each ticker, fetch the historical data, calculate the YTD gain, and track the maximum. The result from running the code gives MSFT as the winner. I need to present this information clearly. However, I should also note that stock prices can fluctuate, so the answer is based on the data up to the current date when the code was run. Let me structure the response with the required tags and ensure I don't add any extra information beyond what's provided. Also, check if there's any mention of other stocks or possible errors, but since the code output only states MSFT, I'll stick to that.
+Okay, let me see. The user asked for the year-to-date gains of the top 10 big tech stocks and which company has the largest gain. 
+
+First, I need to recall the action plan steps. The first step was installing the yfinance Python package. That's necessary because yfinance is used to fetch stock data from Yahoo Finance. The second step was running the Python code that uses yfinance to get the data. The code imports the necessary modules, defines the tickers, and calculates the YTD gains. Then it sorts them and finds the maximum.
+
+Looking at the execution results, the code output shows the YTD percentages for each stock. Microsoft (MSFT) has the highest gain at 10.40%, while Apple (AAPL) is down the most. The code also correctly identifies MSFT as the top performer. 
+
+I should check if there are any errors in the output. The data seems consistent, with all tickers listed. The sorting is in descending order, so the first entry is indeed the largest gain. The user might want a clear list and the answer to the second part. 
+
+I need to present the information in a user-friendly way. List each company with their YTD percentage, then state which one has the largest gain. Make sure to mention that the data is as of the current date when the code ran. Also, note any companies with negative returns if relevant. 
+
+Wait, the user specified "top 10 big tech stocks"—the list includes the usual suspects like AAPL, MSFT, AMZN, etc. The code used those exact tickers, so that's correct. The results are sorted properly. 
+
+No data unavailable entries, so all tickers had valid data. The largest gain is clearly MSFT. I should format the response with bullet points for clarity and bold the key answer. Also, mention that the percentages are approximate and based on closing prices. 
+
+Double-check the numbers from the execution results to ensure accuracy. Yep, MSFT at 10.40% is the highest. Alright, time to structure the response as per the instructions, using the specified tags.
 </think>
 
 <ResponseToUser>
-The big tech stock with the largest year-to-date gain this year is <b>MSFT (Microsoft)</b>, with a gain of <b>6.30%</b>.
-This result was obtained by analyzing historical price data for major tech stocks (AAPL, MSFT, AMZN, GOOGL, META, NVDA) using financial data from the yfinance library.
+Based on the latest available data, here are the year-to-date (YTD) gains for the top 10 big tech stocks as of today:
+
+- **MSFT (Microsoft)**: 10.40%  
+- **META (Meta Platforms)**: 8.15%  
+- **AVGO (Broadcom)**: 4.67%  
+- **NVDA (NVIDIA)**: -2.29%  
+- **INTC (Intel)**: -3.31%  
+- **AMZN (Amazon)**: -6.91%  
+- **AMD (Advanced Micro Devices)**: -8.21%  
+- **TSLA (Tesla)**: -8.65%  
+- **GOOGL (Alphabet)**: -9.23%  
+- **AAPL (Apple)**: -17.44%  
+
+The company with the **largest YTD gain** is **Microsoft (MSFT)** with **10.40%**.  
+
+*Note: These values are based on closing prices from January 1 to today and may fluctuate with market changes.*
 </ResponseToUser>
 ```
