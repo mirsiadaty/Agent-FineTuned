@@ -1,9 +1,9 @@
 # Agent-FineTuned
 Full control over all major aspects of the LM agent.
 
-Choose to use a vendor-provided LM language model, from your vendor of choice. 
-Or use a LM that you have downloaded on your machine. Use your choice of environment for LM inference. 
-This example uses a local LM (qwq-32b-q8_0.gguf) running in 'llama_cpp'.
+Choose to use a vendor-provided LM language model, from your vendor of choice. Or use a LM that you have downloaded on your machine. Use your choice of environment for LM inference.
+
+This example uses a local QwQ language model (qwq-32b-q8_0.gguf). QwQ is the reasoning model of the Qwen series. This example runs the inference on 'llama_cpp'. Llama.cpp is a software library written in C/C++ designed for efficient inference of large language models.
 
 Defining the agents are fully customizable.
 This example defines three LM agents, plus three tools.
